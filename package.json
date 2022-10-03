@@ -1,6 +1,6 @@
 {
   "name": "@kagarisoft/gmvu-cli",
-  "version": "1.0.0",
+  "version": "1.0.0-beta",
   "main": "bin/index.js",
   "license": "MIT",
   "bin": {
