@@ -1,13 +1,13 @@
 {
   "name": "@kagarisoft/gmvu-cli",
-  "version": "1.0.0-beta",
+  "version": "1.0.1-beta",
   "main": "bin/index.js",
   "license": "MIT",
   "bin": {
     "gmvu": "./bin/index.js"
   },
   "dependencies": {
-    "logger": "0.0.1",
-    "make-cli": "2.0.15"
+    "make-cli": "2.0.15",
+    "terminal-log": "1.0.1"
   }
 }

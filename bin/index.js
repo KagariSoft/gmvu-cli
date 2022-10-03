@@ -3,7 +3,7 @@ const makeCli = require("make-cli");
 const pk = require("../package.json");
 const fs = require("fs");
 const path = require("path");
-const filemono = require("../../package.json");
+const filemono = require("../../../../package.json");
 var logger = require("terminal-log");
 makeCli({
   version: pk.version,
@@ -25,9 +25,9 @@ makeCli({
     // options.value and options.yes
     // contain the options.
     if (extra === "bump") {
-      const arr = require("../../kgmono.config.js");
+      const arr = require("../../../../kgmono.config.js");
       arr.map((arrF) => {
-        const file = path.join(__dirname, "..", "..", arrF);
+        const file = path.join(__dirname, "..", "..", "..", "..", arrF);
         const f = require(file);
         f.version = filemono.version;
         fs.writeFile(file, JSON.stringify(f, null, 2), function writeJSON(err) {
@@ -36,10 +36,17 @@ makeCli({
         });
       });
     } else if (extra === "init") {
-      const file = path.join(__dirname, "..", "..", "kgmono.config.js");
+      const file = path.join(
+        __dirname,
+        "..",
+        "..",
+        "..",
+        "..",
+        "kgmono.config.js"
+      );
       const temp = `/*
 Include a list of package.json, for example:
-* Important, don't add "../../"
+* Important, don't add "../../../"
 [
       "packages/test/package.json",
       "packages/test2/package.json"
