@@ -33,6 +33,7 @@ jobs:
 
       - name: Publish gmvu
         run: |
+          npm install
           npm ci
           npm publish --access public
         env:
