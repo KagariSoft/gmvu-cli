@@ -12,12 +12,9 @@ This package helps to globally update the versions of the projects that have a w
 ## Usage
 
 First you will have to generate the configuration file that will be used to add the list of packages of your monorepository, to do this type in the terminal the following code after installing the package.
-`gmvu init`
-
-> In case you get an error that the command does not exist, you can use it as follows.
 ```json
 {
-  "name": "test",
+  "name": "mymonorepo",
   "version": "1.0.0",
   "private": true,
   "workspaces": [
@@ -34,15 +31,9 @@ First you will have to generate the configuration file that will be used to add 
 then you can use the "bump" command to update the version in the subdirectories.
 The bump command occupies the version of the package.json file, so you only need to update the version from the main package.json and the package will take care of the rest.
 
-
-
-
-`gmvu bump`
-
-> In case you get an error that the command does not exist, you can use it as follows.
 ```json
 {
-  "name": "test",
+  "name": "mymonorepo",
   "version": "1.0.0",
   "private": true,
   "workspaces": [
@@ -76,11 +67,26 @@ module.exports = [
 
 To update the version you must update the package.json of the monorepository, this way when using the bump command, it will update the package.json of your projects that are inside the "packages" folder.
 
-
+./
 ```json
 {
+   "name": "mymonorepo",
+  "version": "2.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   ...
-  "version": "1.0.0",
+}
+```
+
+and this is what it will look like in the package.json of your project after updating.
+
+packages/test/package.json:
+```json
+{
+  "name": "test",
+  "version": "2.0.0",
   ...
 }
 ```
