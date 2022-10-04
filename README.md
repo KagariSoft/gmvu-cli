@@ -34,6 +34,9 @@ First you will have to generate the configuration file that will be used to add 
 then you can use the "bump" command to update the version in the subdirectories.
 The bump command occupies the version of the package.json file, so you only need to update the version from the main package.json and the package will take care of the rest.
 
+
+
+
 `gmvu bump`
 
 > In case you get an error that the command does not exist, you can use it as follows.
@@ -51,5 +54,33 @@ The bump command occupies the version of the package.json file, so you only need
   ...
 
 
+}
+```
+
+## Configuration
+
+To configure the directory list, it is required to initialize the administrator. After that, the administrator will create a file called "kgmono.config.js", here you will create a list of all the package.json of your projects.
+
+> It is important to remember not to put the path of your project, but to put the complete path of the package.json of your projects. This way, the administrator will clone the package.json version from the monorepo and send it to the package.json of your projects.
+
+kgmono.config.js example:
+```json
+module.exports = [
+      "packages/test/package.json",
+      "packages/test2/package.json"
+];
+```
+
+> Important, don't add "../../../"
+## Updating version for all projects in your monorepository
+
+To update the version you must update the package.json of the monorepository, this way when using the bump command, it will update the package.json of your projects that are inside the "packages" folder.
+
+
+```json
+{
+  ...
+  "version": "1.0.0",
+  ...
 }
 ```
